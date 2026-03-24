@@ -17,4 +17,27 @@ test.describe('Authentification sur OpenCruise', () => {
         // # On attend que l'URL ne contienne plus "/login" ou qu'on soit sur la home
         await expect(page).not.toHaveURL(/.*login/);
     });
+
+
+    test('REQ-AUTH-02 : Échec de connexion avec identifiants invalides', async ({ page }) => {
+        const loginPage = new LoginPage(page);
+
+        // 1. Navigation
+        await page.goto('https://opencruise-ok.sogeti-center.cloud/login');
+
+        // 2. Action : Saisir un compte qui n'existe pas
+        // # Cas non-passant
+        await loginPage.login('wrong-user@test.com', 'WrongPassword123');
+
+        // On vérifie que le texte du toast s'affiche à l'écran
+        const errorToast = page.getByText('mot de passe ou identifiant invalide');
+        await expect(errorToast).toBeVisible();
+
+        // On vérifie qu'on est toujours sur la page login
+        await expect(page).toHaveURL(/.*login/);
+    }); 
+
+
+
+
 });
