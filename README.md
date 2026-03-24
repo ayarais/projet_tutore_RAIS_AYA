@@ -23,8 +23,6 @@ Plan de Test (Recherche & Souscription) - À venir
 
 | ID | Exigence | Cas de Test | Priorité | Type | État |
 |----|-----------|-------------|----------|------|------|
-| ID | Module | Description du Cas de Test | Priorité | État | Résultat (Env OK) |
-|:---|:---|:---|:---:|:---:|:---:|
 | **REQ-SRCH-01** | Recherche | Recherche par mot-clé ("Maroc") avec affichage des résultats. | P1 | Automatisé |  Pass |
 | **REQ-SRCH-02** | Filtrage | Sélection de l'onglet "AFRIQUE" et vérification de l'activation du filtre. | P2 | Automatisé |  Pass |
 | **REQ-SRCH-03** | Robustesse | Test de recherche avec un mot-clé sans résultats ("Nice") pour vérifier le comportement. | P3 | Automatisé |  Pass |
