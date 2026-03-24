@@ -14,7 +14,11 @@ Le périmètre de test couvre les modules essentiels du parcours utilisateur :
 ## 3. Analyse des Exigences et Cas de Test
 | ID | Exigence | Cas de Test | Priorité | Type |
 |----|-----------|-------------|----------|------|
-| **REQ-AUTH-01** | Connexion sécurisée | Authentification avec succès via des identifiants valides. | P1 | Automatisé |
+| ID | Exigence | Cas de Test | Priorité | Type | État |
+|----|-----------|-------------|----------|------|------|
+| **REQ-AUTH-01** | Connexion sécurisée | Authentification réussie avec des identifiants valides. | P1 | Automatisé |  Pass |
+| **REQ-AUTH-02** | Gestion d'erreur (Données) | Vérification de l'affichage du message "mot de passe ou identifiant invalide" suite à une saisie erronée. | P2 | Automatisé | Pass |
+| **REQ-AUTH-03** | Validation de saisie (Format) | Vérification de l'affichage des messages d'alerte rouges ("Merci de renseigner...") lorsque les champs sont laissés vides. | P3 | Automatisé |  Pass 
 | **REQ-SRCH-02** | Moteur de recherche | Recherche multicritères (destination/date) avec succès. | P2 | Automatisé |
 | **REQ-SUBS-03** | Finalisation de commande | Souscription complète à une offre de croisière. | P1 | Automatisé |
 

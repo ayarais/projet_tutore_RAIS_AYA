@@ -37,7 +37,21 @@ test.describe('Authentification sur OpenCruise', () => {
         await expect(page).toHaveURL(/.*login/);
     }); 
 
+    test('REQ-AUTH-03 : Validation des champs obligatoires (Champs vides)', async ({ page }) => {
+        const loginPage = new LoginPage(page);
 
+        await page.goto('https://opencruise-ok.sogeti-center.cloud/login');
+
+        // On clique sur Connexion sans rien remplir
+        await loginPage.loginButton.click();
+
+        // --- VÉRIFICATION DES MESSAGES DE VALIDATION ---
+        const errorUsername = page.getByText('Merci de renseigner votre identifiant');
+        const errorPassword = page.getByText('Merci de renseigner votre mot de passe');
+
+        await expect(errorUsername).toBeVisible();
+        await expect(errorPassword).toBeVisible();
+    });
 
 
 });
