@@ -54,4 +54,15 @@ test.describe('Authentification sur OpenCruise', () => {
     });
 
 
+    test('REQ-AUTH-04 : Erreur de format d email', async ({ page }) => {
+        const loginPage = new LoginPage(page);
+        await loginPage.goto();
+
+        // On saisit un texte qui n'est pas un email
+        await loginPage.login('aya-pas-email', 'Passw0rdAdmin');
+
+        // On vérifie que l'application reste sur la page login et n'envoie pas les données
+        await expect(page).toHaveURL(/.*login/);
+    });
+
 });

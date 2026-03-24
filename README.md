@@ -12,14 +12,20 @@ Le périmètre de test couvre les modules essentiels du parcours utilisateur :
 * **Processus de Souscription :** Test du tunnel de réservation (identifié comme zone à risque).
 
 ## 3. Analyse des Exigences et Cas de Test
-| ID | Exigence | Cas de Test | Priorité | Type |
-|----|-----------|-------------|----------|------|
 | ID | Exigence | Cas de Test | Priorité | Type | État |
 |----|-----------|-------------|----------|------|------|
 | **REQ-AUTH-01** | Connexion sécurisée | Authentification réussie avec des identifiants valides. | P1 | Automatisé |  Pass |
-| **REQ-AUTH-02** | Gestion d'erreur (Données) | Vérification de l'affichage du message "mot de passe ou identifiant invalide" suite à une saisie erronée. | P2 | Automatisé | Pass |
-| **REQ-AUTH-03** | Validation de saisie (Format) | Vérification de l'affichage des messages d'alerte rouges ("Merci de renseigner...") lorsque les champs sont laissés vides. | P3 | Automatisé |  Pass 
-| **REQ-SRCH-02** | Moteur de recherche | Recherche multicritères (destination/date) avec succès. | P2 | Automatisé |
+| **REQ-AUTH-02** | Gestion d'erreur (Données) | Vérification de l'affichage du message "mot de passe ou identifiant invalide" (Toast) suite à une saisie erronée. | P2 | Automatisé |  Pass |
+| **REQ-AUTH-03** | Validation de saisie (Format) | Vérification de l'affichage des messages d'alerte rouges lorsque les champs sont laissés vides. | P3 | Automatisé |  Pass |
+| **REQ-AUTH-04** | Sécurité / Format Email | Vérification que l'application refuse la soumission si l'identifiant n'a pas un format email valide (ex: manque le @). | P3 | Automatisé |  Pass |
+
+Plan de Test (Recherche & Souscription) - À venir
+
+| ID | Exigence | Cas de Test | Priorité | Type | État |
+|----|-----------|-------------|----------|------|------|
+| **REQ-SRCH-01** | Moteur de recherche | Recherche par destination avec affichage des résultats correspondants. | P1 | Automatisé | En cours |
+| **REQ-SUBS-01** | Processus d'achat | Sélection d'une croisière et finalisation de la réservation jusqu'au paiement. | P1 | Automatisé | En attente |
+
 | **REQ-SUBS-03** | Finalisation de commande | Souscription complète à une offre de croisière. | P1 | Automatisé |
 
 ## 4. Justification du choix de l'automatisation
