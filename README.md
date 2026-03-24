@@ -1,30 +1,31 @@
 # Plan de Conception - Projet Tutoré OpenCruise
 **Candidat :** RAIS AYA  
-[cite_start]**Sujet :** N°3 - Dominante Automatisation (Playwright) [cite: 14]
+**Sujet :** N°3 - Dominante Automatisation (Playwright)
 
 ## 1. Stratégie de Test
-[cite_start]L'objectif est d'assurer la qualité de l'application **OpenCruise** (plateforme de réservation de croisières)[cite: 15]. Nous adoptons une approche basée sur les risques, en privilégiant l'automatisation des flux critiques (Smoke Tests) pour garantir la stabilité des fonctionnalités majeures.
+L'objectif de ce projet est de garantir la qualité et la stabilité de l'application OpenCruise à travers une approche de test structurée. Nous mettons l'accent sur l'automatisation des flux critiques pour assurer une non-régression efficace sur les fonctionnalités vitales de la plateforme de réservation.
 
 ## 2. Périmètre (Scope)
-Le test se concentre sur les modules suivants :
-* [cite_start]**Authentification :** Accès sécurisé à la plateforme[cite: 48].
-* **Recherche & Sélection :** Capacité à trouver et choisir une croisière.
-* **Souscription :** Processus de réservation finale (identifié comme flux critique).
+Le périmètre de test couvre les modules essentiels du parcours utilisateur :
+* **Authentification :** Vérification de l'accès sécurisé au compte utilisateur.
+* **Recherche de Croisières :** Validation des filtres et de l'affichage des résultats.
+* **Processus de Souscription :** Test du tunnel de réservation (identifié comme zone à risque).
 
 ## 3. Analyse des Exigences et Cas de Test
 | ID | Exigence | Cas de Test | Priorité | Type |
 |----|-----------|-------------|----------|------|
-| **REQ-AUTH-01** | [cite_start]L'utilisateur doit pouvoir se connecter avec des identifiants valides[cite: 48]. | Connexion réussie avec email et mot de passe valides. | P1 (Critique) | Automatisé |
-| **REQ-SRCH-02** | L'utilisateur doit pouvoir rechercher une destination spécifique. | Recherche de croisière avec filtres (destination, dates). | P2 (Moyen) | Automatisé |
-| **REQ-SUBS-03** | L'utilisateur doit pouvoir finaliser sa souscription. | Processus complet de réservation jusqu'au paiement/confirmation. | P1 (Critique) | Automatisé |
+| **REQ-AUTH-01** | Connexion sécurisée | Authentification avec succès via des identifiants valides. | P1 | Automatisé |
+| **REQ-SRCH-02** | Moteur de recherche | Recherche multicritères (destination/date) avec succès. | P2 | Automatisé |
+| **REQ-SUBS-03** | Finalisation de commande | Souscription complète à une offre de croisière. | P1 | Automatisé |
 
 ## 4. Justification du choix de l'automatisation
-[cite_start]Nous avons choisi d'automatiser ces tests pour les raisons suivantes[cite: 60]:
-1. **Tests de Régression :** L'authentification et la souscription sont des flux "vitaux". Leur automatisation permet de détecter rapidement toute rupture de service lors des futurs déploiements.
-2. **Gain de Temps :** La recherche de croisière implique plusieurs étapes répétitives qui sont plus rapides à exécuter via un automate.
-3. **Fiabilité :** L'automatisation élimine l'erreur humaine sur les processus de calcul ou de saisie de formulaires complexes.
+L'automatisation a été privilégiée pour les scénarios suivants :
+1. **Flux Critiques :** L'authentification et la souscription sont exécutées fréquemment ; leur automatisation garantit un gain de temps majeur à chaque cycle de test.
+2. **Fiabilité des données :** L'automate permet de vérifier avec précision les calculs et les données saisies sans risque d'erreur humaine.
+3. **Tests de Régression :** Assurer que les nouvelles modifications n'impactent pas le parcours client principal.
 
-## 5. Environnement de Test
-* [cite_start]**Application :** OpenCruise[cite: 15].
-* [cite_start]**Framework :** Playwright (TypeScript)[cite: 14, 16].
-* **Navigateurs :** Chromium (prioritaire), Firefox et Webkit.
+## 5. Environnement Technique
+* **Application cible :** OpenCruise
+* **Framework :** Playwright
+* **Langage :** TypeScript / JavaScript
+* **Navigateurs :** Chromium (prioritaire), Firefox, WebKit
