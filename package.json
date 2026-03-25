@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "**Candidat :** RAIS AYA  \r **Sujet :** N°3 - Dominante Automatisation (Playwright)",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "runui": "npx playwright test tests/subscription.spec.ts --ui"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ayarais/projet_tutore_RAIS_AYA.git"
