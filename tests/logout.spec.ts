@@ -14,7 +14,7 @@ test('Verification de la déconnexion - Succès', async ({ page }) => {
     // 3. Assertion: Thabbet elli rja3na lel Login page
     await expect(page).toHaveURL(/.*login/);
     
-    // Check ken famma message success walla el bouton "Connexion" rja3 yban
+    // bouton "Connexion" est visible
     const loginBtn = page.getByRole('button', { name: 'Connexion' });
     await expect(loginBtn).toBeVisible();
 

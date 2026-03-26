@@ -7,7 +7,7 @@ export class LogoutPage {
 
     constructor(page: Page) {
         this.page = page;
-        // Nestamlu regex /Bienvenue/ khater el esm najem yetbadel
+        // utilisation de regex /Bienvenue/ 
         this.userMenuBtn = page.getByRole('button', { name: /Bienvenue/i });
         this.logoutBtn = page.getByRole('button', { name: 'Se déconnecter' });
     }
