@@ -22,7 +22,7 @@ test('Bug Report: Annuler ne réinitialise pas le champ Prénom', async ({ page 
     // 4. Navigation directe pour éviter les Toasts
     await page.goto('https://opencruise-ok.sogeti-center.cloud/profil/18582'); 
 
-    // 5. Assertion finale: verif bug
+    // 5. verif bug
     const valueAfterCancel = await page.getByRole('textbox', { name: "Prénom de l'utilisateur" }).first().inputValue();
     
     // Expected "Aya" , Received "rayes"

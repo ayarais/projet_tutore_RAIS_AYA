@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { performLogin } from '../utils/auth'; // Import de la fonction auth
+import { performLogin } from '../utils/auth'; 
 
 test('Mise à jour du profil - Succès', async ({ page }) => {
   // 1. Connexion en utilisant la fonction utilitaire

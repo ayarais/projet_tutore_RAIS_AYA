@@ -7,14 +7,14 @@ test('Mot de passe - Cas non identique', async ({ page }) => {
     await page.getByRole('button').nth(1).click();
     await page.getByRole('link', { name: /Modifier votre mot de passe/i }).click();
 
-    // 2. Action: Saisir deux mots de passe différents
+    // 2.  Saisir deux mots de passe différents
     await page.locator('#user_password').fill('Passw0rdAdmin');
     await page.locator('input[formcontrolname="confirmPassword"]').fill('Passw0rdAdmi'); 
 
-    // 3. Action: Cliquer sur Enregistrer
+    // 3. Cliquer sur Enregistrer
     await page.getByRole('button', { name: 'Enregistrer' }).click();
 
-    // 4. Assertion: verifier les deux messages d'erreur en rouge
+    // 4. verifier les deux messages d'erreur en rouge
     const errorMsg = page.getByText(/les mots de passe doivent être identiques/i);
     await expect(errorMsg).toBeVisible({ timeout: 10000 });
 

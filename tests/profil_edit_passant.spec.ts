@@ -8,10 +8,10 @@ test('Profil - Mise à jour sans modifications', async ({ page }) => {
     // cliquer sur icône profil (nth(1) )
     await page.getByRole('button').nth(1).click();
 
-    // 2. Action: Mettre à jour direct sans rien toucher
+    // 2.  Mettre à jour direct sans rien toucher
     await page.getByRole('button', { name: 'Mettre à jour' }).click();
 
-    // 3. Assertion: Thabbet elli el Toast mta3 el succès t'afficha
+    // 3.verif si Toastde succès s'affiche
     const successToast = page.locator('.toast-success, .alert-success, [role="alert"]');
     await expect(successToast).toBeVisible({ timeout: 10000 });
 

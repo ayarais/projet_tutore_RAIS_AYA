@@ -10,13 +10,12 @@ test('Mot de passe - Cas passant (Succès)', async ({ page }) => {
     await page.locator('#user_password').fill('Passw0rdAdmin');
 
     // 2. Confirmer le mot de passe
-    // On utilise un sélecteur plus simple car l'étoile (*) peut gêner le "name"
     await page.locator('input[formcontrolname="confirmPassword"]').fill('Passw0rdAdmin');
 
-    // 3. Action: Enregistrer
+    // 3. Enregistrer
     await page.getByRole('button', { name: 'Enregistrer' }).click();
 
-    // 4. Assertion: verif  que popup est fermée
+    // 4. verif  que popup est fermée
     const modal = page.locator('.modal-content');
     await expect(modal).not.toBeVisible({ timeout: 15000 });
 

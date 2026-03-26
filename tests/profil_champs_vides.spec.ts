@@ -19,13 +19,13 @@ test('Profil - Vider les champs et attendre le message', async ({ page }) => {
         await input.blur(); //  pour que le message d'erreur apparaisse
     }
 
-    // 2. Action: Cliquer sur Mettre à jour 
+    // 2.Cliquer sur Mettre à jour 
     // On utilise force: true au cas où le bouton est grisé (disabled) par Angular
     await page.getByRole('button', { name: 'Mettre à jour' }).click({ force: true });
 
-    // 3. Assertion: Attendre le message d'erreur (Toast ou Texte rouge)
-    // On utilise un timeout de 10s pour contrer la latence du site
+    // 3. Attendre le message d'erreur (Toast ou Texte rouge)
     const errorMsg = page.getByText(/merci de saisir/i).first();
+     // On utilise un timeout de 10s pour contrer la latence du site
     await expect(errorMsg).toBeVisible({ timeout: 10000 });
 
     // 4. Finir proprement

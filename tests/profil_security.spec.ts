@@ -1,21 +1,20 @@
 import { test, expect } from '@playwright/test';
 
 test('Sécurité - Accès interdit sans authentification', async ({ page }) => {
-    // 1. Action: Jarreb todkhel lel profil direct (Sans faire de Login)
-    // Nesta3mlou URL mta3 profil mawjoud kima elli f'el tsawer mte3ek
+    // 1. acces direct au profil (Sans faire de Login)
+    // utilisation url profil directement
     const profileUrl = 'https://opencruise-ok.sogeti-center.cloud/profil/18582';
     await page.goto(profileUrl);
 
-    // 2. Assertion: El site lezem ya3mel "Redirect" automatique lel Login
-    // Ma3neha el URL mta3 el page lezem twalli fiha kelmet "login"
+    // 2. site doit faire "Redirect" automatique au Login
     await expect(page).toHaveURL(/.*login/);
 
-    // 3. Verification: Thabbet elli el form mta3 el login dhoher
+    // 3. Verification le form de login displayed
     const loginButton = page.getByRole('button', { name: 'Connexion' });
     await expect(loginButton).toBeVisible();
 
-    // 4. Verification supplementaire: Thabbet elli el xomponents mta3 el profil ma thomch
-    // El label "Nom" walla "Prénom" mta3 el profil lezem may'kounouch visible
+    // 4. Verification si xomponents du profil sont pas là
+    //  label "Nom" de profil n'est visible
     const profileName = page.locator('text=Nom');
     await expect(profileName).not.toBeVisible();
 
