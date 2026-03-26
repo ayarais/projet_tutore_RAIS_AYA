@@ -16,14 +16,13 @@ test('Inscription - Validation Erreurs Champs Vides', async ({ page }) => {
     const submitBtn = mainForm.getByRole('button', { name: 'Créer votre compte' });
     await submitBtn.click();
 
-    // 4. FIX: On attend que le message d'erreur apparaisse (le sélecteur peut varier selon le site)
-    // D'après tes anciens screens, c'est soit .text-danger soit un message spécifique
+    // 4. On attend que le message d'erreur apparaisse (le sélecteur peut varier selon le site)
     const errorMsg = page.getByText('merci de saisir', { exact: false }).first();
     
     // On utilise un timeout plus long car l'apparition peut être lente
     await expect(errorMsg).toBeVisible({ timeout: 7000 });
 
-    // 5. Thabbet elli el bouton "Créer" mouch enabled (ken el site ybloquih)
-    // Sinon, thabbet elli dima a7na f'el page register
+    // 5. verif si bouton "Créer" n est pas  enabled 
+    // verif si tjrs sur la page register
     await expect(page).toHaveURL(/.*register/);
 });

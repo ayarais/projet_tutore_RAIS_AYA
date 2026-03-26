@@ -4,17 +4,17 @@ test('Inscription - Détection Anomalie Validation Formats', async ({ page }) =>
     // 1. Navigation direct vers Register
     await page.goto('https://opencruise-ok.sogeti-center.cloud/register');
 
-    // 2. FIX: Sélection Particulier (Sogeti lezemha el type 9bal kol chay)
+    // 2.  Sélection Particulier 
     await page.locator('input[name="type"][value="1"]').check();
     const mainForm = page.locator('form').first();
 
-    // 3. Remplissage avec "N'importe quoi" kima dakhalt enti
+    // 3. Remplissage avec "N'importe quoi" 
     await mainForm.locator('input[formcontrolname="nom"]').fill('1234');
     await mainForm.locator('input[formcontrolname="prenom"]').fill('1234');
     await mainForm.locator('input[formcontrolname="dateNaissance"]').fill('2026-03-26');
     await mainForm.locator('input[formcontrolname="adresse"]').fill('12abc');
 
-    // FIX SELECTS: On attend que les options chargent
+    //  On attend que les options chargent
     await mainForm.locator('select[formcontrolname="currentPays"]').selectOption({ label: 'Maroc' });
     await expect(mainForm.locator('select[formcontrolname="ville"] option')).not.toHaveCount(0);
     await mainForm.locator('select[formcontrolname="ville"]').selectOption({ label: 'Agadir' });
@@ -35,12 +35,12 @@ test('Inscription - Détection Anomalie Validation Formats', async ({ page }) =>
     // 4. Click Créer Compte
     await mainForm.getByRole('button', { name: 'Créer votre compte' }).click();
 
-    // 5. ASSERTIONS: C'est ici qu'on prouve l'anomalie
+    // 5.  C'est ici qu'on prouve l'anomalie
     
-    // A. L'email doit afficher son erreur
+    // L'email doit afficher son erreur
     await expect(page.getByText('le format est incorrect merci de renseigner un email valide')).toBeVisible();
 
-    // B. ANOMALIE CHECK: Normalement ces champs doivent être en erreur (rouge)
+    // Normalement ces champs doivent être en erreur 
     // Si ces tests passent (toBeVisible), le site est bon. S'ils fail, l'anomalie est confirmée.
     const prenomError = page.locator('input[formcontrolname="prenom"] + .text-danger');
     const telError = page.locator('input[formcontrolname="tel"] + .text-danger');
