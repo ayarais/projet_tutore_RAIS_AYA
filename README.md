@@ -15,9 +15,6 @@ Ce projet vise à automatiser les tests de non-régression de l'application **Op
 2. Installer les dépendances :
    ```bash
    npm install
-
-
-
 ##  Navigation dans la Documentation
 
 *Pour une lecture détaillée, veuillez consulter les rapports suivants :*
