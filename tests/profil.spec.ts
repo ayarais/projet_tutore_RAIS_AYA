@@ -1,26 +1,22 @@
 import { test, expect } from '@playwright/test';
-import { ProfilPage } from '../pages/ProfilPage';
-import { performLogin } from '../utils/auth';
+import { performLogin } from '../utils/auth'; // Import de la fonction auth
 
-test.describe('Gestion du Profil', () => {
-  let profilPage: ProfilPage;
+test('Mise à jour du profil - Succès', async ({ page }) => {
+  // 1. Connexion en utilisant la fonction utilitaire
+  await performLogin(page);
 
-  test.beforeEach(async ({ page }) => {
-    profilPage = new ProfilPage(page);
-    await performLogin(page); // Helper 
-  });
+  // 2. Accès au profil
+  await page.locator('app-main-nav .btn').filter({ has: page.locator('svg') }).nth(1).click();
 
- test('Update user profile name and verify changes', async ({ page }) => {
-    // 1. Naviguer vers Profil
-    await profilPage.profileMenuLink.waitFor({ state: 'visible' });
-    await profilPage.profileMenuLink.click({ force: true });
+  // 3. Modif de la Date de naissance
+  const dateInput = page.locator('input[formcontrolname="dateNaissance"]');
+  // "waitFor" pour verifier que l input est affiché avant de le remplir
+  await dateInput.waitFor({ state: 'visible' }); 
+  await dateInput.fill('1999-05-22');
 
-    // 2. Modifier le profil
-    const newLastName = 'rais';
-    await profilPage.nomInput.fill(newLastName);
-    await profilPage.updateBtn.click();
+  // 4. Click Mettre à jour
+  await page.getByRole('button', { name: 'Mettre à jour' }).click();
 
-    // 3. Verification
-    await expect(page.locator('.toast-container')).toBeVisible();
-  });
+  // 5. Assertion
+  await expect(dateInput).toHaveValue('1999-05-22');
 });

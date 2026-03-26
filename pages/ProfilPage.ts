@@ -10,12 +10,12 @@ export class ProfilPage {
 
     constructor(page: Page) {
         this.page = page;
-        // D'après el HTML: formcontrolname="nom" w "prenom"
+        // formcontrolname="nom" et "prenom"
         this.nomInput = page.locator('input[formcontrolname="nom"]');
         this.prenomInput = page.locator('input[formcontrolname="prenom"]');
         this.updateBtn = page.getByRole('button', { name: 'Mettre à jour' });
         
-        // Selector lel menu dropdown (Bienvenue...)
+        // Selector du menu dropdown (Bienvenue...)
         this.userMenuBtn = page.locator('#dropdownMenu2');
         //  bouton profil dans dropdown (nth(1) code )
        // target  button SVG direct
