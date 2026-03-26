@@ -1,17 +1,24 @@
 import { test, expect } from '@playwright/test';
-import { SubscriptionPage } from '../pages/SubscriptionPage';
 import { performLogin } from '../utils/auth';
 
-test('Test Souscription Dynamique', async ({ page }) => {
-    const subscriptionPage = new SubscriptionPage(page);
-
+test('User can reserve a cruise in Africa', async ({ page }) => {
+    // 1. Login 
     await performLogin(page);
+
+    // 2. Navigation (Force click pur eviter le random )
+    await page.getByRole('tab', { name: 'AFRIQUE' }).click({ force: true });
     
-    // chargement page d'accueil 
-    await expect(page.getByRole('button', { name: 'Connexion' })).not.toBeVisible({ timeout: 10000 });
+    // 3. Sélection (On attend que l'élément soit là)
+    const enSavoirPlus = page.getByRole('button', { name: 'En savoir plus' }).nth(3);
+    await enSavoirPlus.waitFor({ state: 'visible' });
+    await enSavoirPlus.click();
 
-    await subscriptionPage.souscrireOffreDynamique();
+    await page.getByRole('button', { name: 'Réserver' }).click();
 
-    // Verification de l'URL contenant le mot 'panier' 'panier' 'reservation'
-    await expect(page).toHaveURL(/.*panier|.*reservation|.*recapitulatif/);
+    // 4. FIX EL ASSERTION HOUNI:
+    //  capture verif URL est /reservation/... pas /detail
+    await page.waitForURL(/.*reservation/); 
+    await expect(page).toHaveURL(/.*reservation/, { timeout: 10000 });
+    
+    console.log("Subscription Tunnel Succès !");
 });
