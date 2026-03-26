@@ -53,7 +53,6 @@ test.describe('Authentification sur OpenCruise', () => {
         await expect(errorPassword).toBeVisible();
     });
 
-
     test('REQ-AUTH-04 : Erreur de format d email', async ({ page }) => {
         const loginPage = new LoginPage(page);
         await loginPage.goto();
