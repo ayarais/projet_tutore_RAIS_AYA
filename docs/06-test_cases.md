@@ -22,7 +22,7 @@ Ce document récapitule l'ensemble des tests automatisés et manuels effectués 
 | **TC-16** | Recherche : Aucun résultat | Faible | Affichage "Aucune croisière trouvée" | ✅ Pass |
 | **TC-17** | Inscription : Inscription complète (Particulier) | Haute | Succès et redirection finale | ✅ Pass |
 | **TC-18** | Password : Changement de mot de passe | Moyenne | Nouveau MDP opérationnel | ✅ Pass |
-| **TC-19** | `validation_date.spec.ts` | Moyenne | Rejet Date du jour/Future | ❌ Fail  |
+| **TC-19** | `validation_date.spec.ts` | Moyenne | Rejet Date du jour/Future |  ✅ Pass  |
 | **TC-20** | Sécurité : Injection SQL basique | Haute | Caractères échappés proprement | ✅ Pass |
 | **TC-21** | UI : Responsive Design (Mobile) | Moyenne | Formulaire lisible sur petits écrans | ✅ Pass |
 
