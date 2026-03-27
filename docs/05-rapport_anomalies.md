@@ -11,7 +11,7 @@ Ce document récapitule les dysfonctionnements identifiés lors des tests automa
 Le système affiche un message d'erreur "le mot de passe doit contenir des lettres..." même lorsque l'utilisateur saisit un mot de passe valide respectant tous les critères (Majuscule, chiffre, 8+ caractères). 
 
 ### Preuve (Screenshot)
-![Erreur Validation Password](./Anomalie%2002.png)
+![Erreur Validation Password](./Anomalie01.png)
 *(Note: Le mot de passe contient bien des points, indiquant une saisie complexe, mais l'erreur persiste- Passw0rdAdmin)*.
 
 ### Impact
@@ -26,7 +26,7 @@ L'utilisateur est induit en erreur et peut abandonner le processus d'inscription
 Bien qu'un message d'erreur s'affiche ("le format est incorrect"), le champ accepte des saisies incohérentes dans la console ou ne bloque pas immédiatement l'interaction de manière stricte.
 
 ### Preuve (Screenshot)
-![Erreur Format Email](./Anomalie%2002%20.png)
+![Erreur Format Email](./Anomalie02.png)
 *(Note: Saisie de caractères aléatoires "kjhgfdghjkl" sans structure d'email valide)*.
 
 ### Impact
