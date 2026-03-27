@@ -25,7 +25,7 @@ Ce document récapitule l'ensemble des tests automatisés et manuels effectués 
 | **TC-19** | `validation_date.spec.ts` | Moyenne | Rejet Date du jour/Future |  ✅ Pass  |
 | **TC-20** | Sécurité : Injection SQL basique | Haute | Caractères échappés proprement | ✅ Pass |
 | **TC-21** | UI : Responsive Design (Mobile) | Moyenne | Formulaire lisible sur petits écrans | ✅ Pass |
-
+| **TC-22** | UI : Feedback visuel (Loading State)	|Faible	| Indicateur de chargement lors du clic |	✅ Pass|
 ---
 
 ## 📈 Statistiques de Qualité
