@@ -85,7 +85,7 @@ Risque d'erreurs logistiques et de données incohérentes dans le profil utilisa
 Ajouter une validation `pattern="[0-9]*"` ou une vérification basée sur le pays sélectionné pour garantir un format de code postal valide.
 ---
 
-## 🔴 Anomalie 06 : Absence de Limitation du champ Numéro de Passeport
+## 🟠  Anomalie 06 : Absence de Limitation du champ Numéro de Passeport
 **Statut :** Ouvert | **Priorité :** Moyenne | **Type :** Functional Bug
 
 ### Description
@@ -97,7 +97,7 @@ Le champ "Numéro de passeport" accepte une saisie dépassant largement la limit
 
 ---
 
-## 🟠 Anomalie 07 : Absence de Validation sur le champ Adresse
+## 🟡  Anomalie 07 : Absence de Validation sur le champ Adresse
 **Statut :** Ouvert | **Priorité :** Faible | **Type :** UI/UX Bug
 
 ### Description
@@ -109,7 +109,7 @@ Le champ "Adresse" accepte des saisies incohérentes mélangeant chiffres et let
 
 ---
 
-## 🟡 Anomalie 08 : Cohérence Date de Naissance / Date du Jour
+## 🟠  Anomalie 08 : Cohérence Date de Naissance / Date du Jour
 **Statut :** Ouvert | **Priorité :** Moyenne | **Type :** Business Logic Bug
 
 ### Description
