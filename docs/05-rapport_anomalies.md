@@ -12,6 +12,7 @@ Le système affiche un message d'erreur "le mot de passe doit contenir des lettr
 
 ### Preuve (Screenshot)
 ![Erreur Validation Password](./Anomalie01.png)
+
 *(Note: Le mot de passe contient bien des points, indiquant une saisie complexe, mais l'erreur persiste- Passw0rdAdmin)*.
 
 ### Impact
