@@ -12,7 +12,7 @@ Le système affiche un message d'erreur "le mot de passe doit contenir des lettr
 
 ### Preuve (Screenshot)
 ![Erreur Validation Password](./Anomalie%2001%20.png)
-*(Note: Le mot de passe contient bien des points, indiquant une saisie complexe, mais l'erreur persiste)*.
+*(Note: Le mot de passe contient bien des points, indiquant une saisie complexe, mais l'erreur persiste- Passw0rdAdmin)*.
 
 ### Impact
 L'utilisateur est induit en erreur et peut abandonner le processus d'inscription car il pense que son mot de passe est invalide.
@@ -26,7 +26,7 @@ L'utilisateur est induit en erreur et peut abandonner le processus d'inscription
 Bien qu'un message d'erreur s'affiche ("le format est incorrect"), le champ accepte des saisies incohérentes dans la console ou ne bloque pas immédiatement l'interaction de manière stricte.
 
 ### Preuve (Screenshot)
-![Erreur Format Email](../image_679aea.jpg)
+![Erreur Format Email](./Anomalie%2002%20.png)
 *(Note: Saisie de caractères aléatoires "kjhgfdghjkl" sans structure d'email valide)*.
 
 ### Impact
