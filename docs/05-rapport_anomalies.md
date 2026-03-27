@@ -65,7 +65,23 @@ Le champ "Téléphone" accepte la saisie de caractères alphabétiques et de sym
 
 ### Recommandation
 Appliquer une validation stricte (Regex) ou utiliser un input de type `tel` avec un filtre `pattern="[0-9]*"` pour empêcher la saisie de lettres dès l'interface utilisateur.
+---
 
+## 🟠 Anomalie 05 : Absence de Validation du Code Postal
+**Statut :** Ouvert | **Priorité :** Moyenne | **Type :** Functional Bug
+
+### Description
+Le champ "Code postal" accepte la saisie de caractères alphabétiques (ex: "nbh") sans déclencher d'erreur de format, alors qu'il devrait être restreint aux chiffres selon les standards postaux.
+
+### Preuve (Screenshot)
+![Erreur Code Postal](./Anomalie02.png)
+*(Note: Saisie de "nbh" acceptée pour la ville d'Agadir, Maroc)*.
+
+### Impact
+Risque d'erreurs logistiques et de données incohérentes dans le profil utilisateur.
+
+### Recommandation
+Ajouter une validation `pattern="[0-9]*"` ou une vérification basée sur le pays sélectionné pour garantir un format de code postal valide.
 ---
 ## 🛠️ Recommandations Techniques
 1. **Password** : Revoir la Regex de validation dans le composant Angular pour déclencher le `onKeyUp` correctement.
