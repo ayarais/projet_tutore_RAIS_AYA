@@ -83,6 +83,41 @@ Risque d'erreurs logistiques et de données incohérentes dans le profil utilisa
 ### Recommandation
 Ajouter une validation `pattern="[0-9]*"` ou une vérification basée sur le pays sélectionné pour garantir un format de code postal valide.
 ---
+
+## 🔴 Anomalie 06 : Absence de Limitation du champ Numéro de Passeport
+**Statut :** Ouvert | **Priorité :** Moyenne | **Type :** Functional Bug
+
+### Description
+Le champ "Numéro de passeport" accepte une saisie dépassant largement la limite standard (ex: 10 chiffres ou plus) sans aucune validation de longueur ni de format spécifique.
+
+### Preuve (Screenshot)
+![Erreur Passeport](./Anomalie02.png)
+*(Note: Saisie de "5412568574" acceptée sans contrôle du format spécifique au pays)*.
+
+---
+
+## 🟠 Anomalie 07 : Absence de Validation sur le champ Adresse
+**Statut :** Ouvert | **Priorité :** Faible | **Type :** UI/UX Bug
+
+### Description
+Le champ "Adresse" accepte des saisies incohérentes mélangeant chiffres et lettres sans structure logique (ex: "14hjjk"), ce qui peut fausser les données de localisation.
+
+### Preuve (Screenshot)
+![Erreur Adresse](./Anomalie02.png)
+*(Note: L'adresse "14hjjk" est acceptée par le formulaire sans aucune suggestion ou masque de saisie)*.
+
+---
+
+## 🟡 Anomalie 08 : Cohérence Date de Naissance / Date du Jour
+**Statut :** Ouvert | **Priorité :** Moyenne | **Type :** Business Logic Bug
+
+### Description
+Le champ "Date de naissance" accepte la date du jour (26/03/2026) pour un utilisateur principal, ce qui est une aberration métier pour une inscription de type "Particulier" censée être réservée aux adultes ou profils valides.
+
+### Preuve (Screenshot)
+![Erreur Date Naissance](./Anomalie02.png)
+*(Note: La date sélectionnée est le 26/03/2026, correspondant à la date actuelle de l'inscription)*.
+---
 ## 🛠️ Recommandations Techniques
 1. **Password** : Revoir la Regex de validation dans le composant Angular pour déclencher le `onKeyUp` correctement.
 2. **Email** : Implémenter une validation HTML5 `type="email"` plus stricte.
