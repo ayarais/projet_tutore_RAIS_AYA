@@ -41,7 +41,7 @@ Risque de pollution de la base de données avec des adresses emails non fonction
 Les champs "Nom" et "Prénom" acceptent des chiffres (ex: "1245") et des caractères spéciaux (ex: "!!!") sans déclencher d'alerte immédiate.
 
 ### Preuve (Screenshot)
-![Données Invalides Nom/Prénom](../image_6796ed.png)
+![Données Invalides Nom/Prénom](./Anomalie03.png)
 *(Note: Le prénom est rempli avec "!!!" et le nom avec "12345")*.
 
 ### Impact
