@@ -49,6 +49,24 @@ Mauvaise qualité des données utilisateur recueillies.
 
 ---
 
+## 🔴 Anomalie 04 : Absence de Contrôle sur le champ Téléphone
+**Statut :** Ouvert | **Priorité :** Haute | **Type :** Functional Bug
+
+### Description
+Le champ "Téléphone" accepte la saisie de caractères alphabétiques et de symboles au lieu de restreindre l'entrée uniquement aux caractères numériques. 
+
+### Preuve (Screenshot)
+![Erreur Champ Téléphone](./Anomalie02.png)
+*(Note: Saisie de ";lkjhgfhuikl" dans le champ téléphone sans aucun blocage ni message d'erreur spécifique au format numérique)*.
+
+### Impact
+* **Données erronées** : Impossibilité de contacter le client par la suite.
+* **Sécurité** : Risque d'injection si les caractères spéciaux ne sont pas filtrés côté serveur.
+
+### Recommandation
+Appliquer une validation stricte (Regex) ou utiliser un input de type `tel` avec un filtre `pattern="[0-9]*"` pour empêcher la saisie de lettres dès l'interface utilisateur.
+
+---
 ## 🛠️ Recommandations Techniques
 1. **Password** : Revoir la Regex de validation dans le composant Angular pour déclencher le `onKeyUp` correctement.
 2. **Email** : Implémenter une validation HTML5 `type="email"` plus stricte.

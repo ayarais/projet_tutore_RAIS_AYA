@@ -8,7 +8,7 @@ Ce projet vise à automatiser les tests de non-régression de l'application **Op
 * **`pages/`** : Modèles Page Object (POM) pour une maintenance simplifiée.
 * **`tests/`** : Scripts de tests automatisés couvrant les différents modules.
 * **`docs/`** : Documentation complète (Conception, Architecture, Anomalies).
-* **`utils/`** : Fonctions d'aide (Authentification, Configurations).
+* **`utils/`** : Fonctions d'aide (Authentification).
 
 ## ⚙️ Installation
 1. Cloner le repository.
